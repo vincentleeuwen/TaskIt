@@ -49,6 +49,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
+    @IBAction func addTaskTapped(sender: UIBarButtonItem) {
+        // do stuff
+        self.performSegueWithIdentifier("showTaskAdd", sender: self)
+    }
+    
+    
+    
     // UITableViewDataSource
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
