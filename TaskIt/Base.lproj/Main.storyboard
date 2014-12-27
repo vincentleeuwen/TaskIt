@@ -78,7 +78,7 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="615"/>
                                 </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="YJh-gX-Rrs"/>
@@ -186,7 +186,11 @@
                                 <action selector="cancelButtonPressed:" destination="SrF-Od-r0p" id="fWc-Dh-45H"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="MGH-K3-SgY"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="MGH-K3-SgY">
+                            <connections>
+                                <action selector="editTaskButtonPressed:" destination="SrF-Od-r0p" id="SLU-NA-OEC"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="dueDatePicker" destination="FBG-bC-9xh" id="mZH-b0-UwK"/>
@@ -207,6 +211,7 @@
                         <viewControllerLayoutGuide type="bottom" id="lxg-ZZ-PkL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bgh-DI-xhh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="twu-WF-XsS">
@@ -217,6 +222,9 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="256" y="20" width="64" height="30"/>
                                 </variation>
+                                <connections>
+                                    <action selector="addTaskButtonTapped:" destination="uEV-B1-G1k" eventType="touchUpInside" id="WSN-iD-hDm"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2UP-NB-IlV">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
@@ -231,7 +239,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="150" width="289" height="30"/>
+                                    <rect key="frame" x="16" y="149" width="289" height="30"/>
                                 </variation>
                             </textField>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="27K-Wf-Bf8">
@@ -309,6 +317,11 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="subTaskTextField" destination="m5u-tA-F3L" id="FAN-79-L9t"/>
+                        <outlet property="taskDueDatePicker" destination="27K-Wf-Bf8" id="ByM-TM-FLk"/>
+                        <outlet property="taskTextField" destination="2UP-NB-IlV" id="oRC-TB-hJW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="axn-LS-inp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

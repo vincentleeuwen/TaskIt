@@ -9,7 +9,14 @@
 import UIKit
 
 class AddTaskViewController: UIViewController {
-
+    
+    var mainVC: ViewController!
+    
+    @IBOutlet weak var taskTextField: UITextField!
+    @IBOutlet weak var subTaskTextField: UITextField!
+    @IBOutlet weak var taskDueDatePicker: UIDatePicker!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,5 +32,10 @@ class AddTaskViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
+    @IBAction func addTaskButtonTapped(sender: UIButton) {
+        var task = TaskModel(task: taskTextField.text, subTask: subTaskTextField.text, date: taskDueDatePicker.date, isCompleted: false)
+        mainVC.baseArray[0].append(task)
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
 }

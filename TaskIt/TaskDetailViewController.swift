@@ -1,17 +1,17 @@
 //
 //  TaskDetailViewController.swift
 //  TaskIt
-//
-//  Created by Vincent van Leeuwen on 23/12/14.
-//  Copyright (c) 2014 Vincent van Leeuwen. All rights reserved.
-//
+
 
 import UIKit
 import Foundation
 
 class TaskDetailViewController: UIViewController {
 
+    var mainVC: ViewController!
+
     var detailTaskModel: TaskModel!
+    
     @IBOutlet weak var taskTextField: UITextField!
     @IBOutlet weak var subTaskTextField: UITextField!
     @IBOutlet weak var dueDatePicker: UIDatePicker!
@@ -23,7 +23,7 @@ class TaskDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-//        println(self.detailTaskModel.task)
+        println(self.detailTaskModel)
         
         self.taskTextField.text = self.detailTaskModel.task
         self.subTaskTextField.text = self.detailTaskModel.subTask
@@ -36,6 +36,13 @@ class TaskDetailViewController: UIViewController {
     }
     
     @IBAction func cancelButtonPressed(sender: UIBarButtonItem) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    @IBAction func editTaskButtonPressed(sender: UIBarButtonItem) {
+        var taskDone = TaskModel(task: self.taskTextField.text, subTask: self.subTaskTextField.text, date: self.dueDatePicker.date, isCompleted: false)
+        let taskIndex = mainVC.tableView.indexPathForSelectedRow()!.row
+        self.mainVC.baseArray[0][taskIndex] = taskDone
         self.navigationController?.popViewControllerAnimated(true)
     }
     
